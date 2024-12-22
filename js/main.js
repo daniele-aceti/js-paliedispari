@@ -22,10 +22,7 @@ condition = condition.toLocaleLowerCase()
         console.log(controllerS.innerHTML = "il valore non è valido")
     }
    
-
-
-    //NUMERO RANDOM
-
+//NUMERO RANDOM
 
 function randomIntFromInterval (min, max) { 
     return Math.floor(Math.random() * (max - min + 1) + min);
