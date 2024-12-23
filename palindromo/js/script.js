@@ -1,4 +1,10 @@
-const word = prompt("inserisci una parola")
+let word = prompt("inserisci una parola")
+
+// controllo per evitare che l'utente inserisca un numero 
+if(!isNaN(word)){
+   word = false
+  console.log("Questo è un numero")
+}
 
 //trasformo la parola in un array per confrontarla con quella invertita
 let arrayWord = word.split("")
