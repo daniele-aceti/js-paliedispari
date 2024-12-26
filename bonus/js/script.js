@@ -10,7 +10,6 @@ submitButton.addEventListener('click', function (event){
 event.preventDefault()
 
 
-    
 //NUMERO RANDOM
 
 function randomIntFromInterval (min, max) { 
