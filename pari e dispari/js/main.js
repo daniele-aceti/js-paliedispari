@@ -3,7 +3,7 @@
 const controllerN = document.querySelector("#controllerN");
     
 let num = prompt ("scrivi un numero da 1 a 5")
-    if(num <= 5){
+    if(num <= 5 && num >= 1){
         console.log(controllerN.innerHTML = "il numero è corretto")
     }else{
         num = false
