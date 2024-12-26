@@ -41,28 +41,33 @@ add.innerHTML = `la somma dei nostri numeri è : ${sum}`
 // PARI O DISPARI & VINCITORE 
 
 
+const loading = setTimeout(function(){
+
 function evenOdd(even, odd){
     if(sum % 2 === 0){
         const even = pari.value
         console.log(even)
         if(even === condition.value){
-            console.log(winner.innerHTML = "HAI VINTO")
+            console.log(winner.innerHTML = "HAI VINTO 😊")
         }else{
-            console.log(winner.innerHTML = "HAI PERSO")
+            console.log(winner.innerHTML = "HAI PERSO 😭")
         }
     }else if(sum % 2 === 1){
         const odd = dispari.value
         console.log(odd)
         if(odd === condition.value){
-            console.log(winner.innerHTML = "HAI VINTO")
+            console.log(winner.innerHTML = "HAI VINTO 😊")
         }else{
-            console.log(winner.innerHTML = "HAI PERSO")
+            console.log(winner.innerHTML = "HAI PERSO 😭")
         }
         }
            return 
     }
 
 const winLose = evenOdd()
+
+
+}, 1000)
 
 })
 
