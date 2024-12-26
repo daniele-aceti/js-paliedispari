@@ -1,25 +1,24 @@
-//RICHIESTA NUMERO
+const submitButton = document.querySelector("#submitButton")
+let numbers = document.querySelector('#num')
+let condition = document.querySelector("#condition")
+let winner = document.querySelector("#winner")
+let pari = document.querySelector("#pari")
+let disapri = document.querySelector("#disapri")
+
+submitButton.addEventListener('click', function (event){
+
+event.preventDefault()
+
+//CONTROLLO NUMERO
+
+if(numbers <= 5){
+    console.log("il numero è corretto")
+}else{
+    numbers = false
+    console.log("il numero non è corretto")
+}
 
     
-let num = "scrivi un numero da 1 a 5"
-    if(num <= 5){
-        console.log(controllerN.innerHTML = "il numero è corretto")
-    }else{
-        num = false
-        console.log(controllerN.innerHTML = "il numero non è corretto")
-    }
-//RICHIESTA PARI O DISPARI
-
-
-let condition = "inserisci pari o dispari"
-condition = condition.toLocaleLowerCase()
-    if(condition === "pari" || condition === "dispari"){
-        console.log(controllerS.innerHTML = "il valore è valido")
-    }else{
-        condition = false
-        console.log(controllerS.innerHTML = "il valore non è valido")
-    }
-   
 //NUMERO RANDOM
 
 function randomIntFromInterval (min, max) { 
@@ -28,42 +27,41 @@ function randomIntFromInterval (min, max) {
   
 const random = randomIntFromInterval(1, 5);
 console.log(random)
-  
-//FUNZIONE SOMMA
-
-function result (num1, num2) {
-         return num1 + num2;
-}
 
 //SOMMA TRA RANDOM E NUMERO DIGITATO DALL'UTENTE
 
-const sum = result(parseInt(num), random)
+
+const sum = parseInt(numbers.value) + parseInt(random)
 console.log(sum)
+
+
 
 // PARI O DISPARI & VINCITORE 
 
 
 function evenOdd(even, odd){
     if(sum % 2 === 0){
-        const even = "pari"
+        const even = pari.value
         console.log(even)
-        if(even === condition){
-            console.log(winner.innerHTML = "HAI VINTO")
+        if(even === condition.value){
+            console.log("HAI VINTO")
         }else{
-            console.log(winner.innerHTML = "HAI PERSO")
+            console.log("HAI PERSO")
         }
     }else if(sum % 2 === 1){
-        const odd = "dispari"
+        const odd = dispari.value
         console.log(odd)
-        if(odd === condition){
-            console.log(winner.innerHTML = "HAI VINTO")
+        if(odd === condition.value){
+            console.log("HAI VINTO")
         }else{
-            console.log(winner.innerHTML = "HAI PERSO")
+            console.log("HAI PERSO")
         }
         }
            return 
     }
 
 const winLose = evenOdd()
+
+})
 
 
