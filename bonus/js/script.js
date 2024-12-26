@@ -9,14 +9,6 @@ submitButton.addEventListener('click', function (event){
 
 event.preventDefault()
 
-//CONTROLLO NUMERO
-
-if(numbers <= 5){
-    console.log("il numero è corretto")
-}else{
-    numbers = false
-    console.log("il numero non è corretto")
-}
 
     
 //NUMERO RANDOM
