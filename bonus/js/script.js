@@ -43,32 +43,33 @@ add.innerHTML = `la somma dei nostri numeri è : ${sum}`
 
 const loading = setTimeout(function(){
 
-function evenOdd(even, odd){
-    if(sum % 2 === 0){
+function evenOdd(event){
+    if (event % 2 === 0){
         const even = pari.value
-        console.log(even)
-        if(even === condition.value){
-            console.log(winner.innerHTML = "HAI VINTO 😊")
-        }else{
-            console.log(winner.innerHTML = "HAI PERSO 😭")
-        }
-    }else if(sum % 2 === 1){
+        console.log(even)  
+        return  even
+    }else{
         const odd = dispari.value
         console.log(odd)
-        if(odd === condition.value){
+        return odd
+        
+        }
+    }
+
+const winLose = evenOdd(sum)
+console.log(winLose)
+
+ if(winLose === condition.value){
             console.log(winner.innerHTML = "HAI VINTO 😊")
         }else{
             console.log(winner.innerHTML = "HAI PERSO 😭")
         }
-        }
-           return 
-    }
-
-const winLose = evenOdd()
-
 
 }, 1000)
 
 })
+
+
+
 
 
