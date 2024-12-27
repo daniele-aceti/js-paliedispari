@@ -45,27 +45,24 @@ console.log(sum)
 // PARI O DISPARI & VINCITORE 
 const winner = document.querySelector("#winner");
 
-function evenOdd(even, odd){
-    if(sum % 2 === 0){
+function evenOdd(event){
+    if (event % 2 === 0){
         const even = "pari"
-        console.log(even)
-        if(even === condition){
-            console.log(winner.innerHTML = "HAI VINTO")
-        }else{
-            console.log(winner.innerHTML = "HAI PERSO")
-        }
-    }else if(sum % 2 === 1){
-        const odd = "dispari"
+        console.log(even)  
+        return  even
+    }else{
+       const odd = "dispari"
         console.log(odd)
-        if(odd === condition){
-            console.log(winner.innerHTML = "HAI VINTO")
-        }else{
-            console.log(winner.innerHTML = "HAI PERSO")
+        return odd
+        
         }
-        }
-           return 
     }
 
-const winLose = evenOdd()
+const winLose = evenOdd(sum)
+console.log(winLose)
 
-
+ if(winLose === condition){
+            console.log(winner.innerHTML = "HAI VINTO")
+        }else{
+            console.log(winner.innerHTML = "HAI PERSO")
+        }
