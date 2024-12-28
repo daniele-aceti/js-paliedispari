@@ -9,7 +9,7 @@ if(!isNaN(word)){
 //trasformo la parola in un array per confrontarla con quella invertita
 let arrayWord = word.split("")
 console.log(arrayWord)
-arrayWord = arrayWord.toString()
+arrayWord = arrayWord.join("").toLowerCase()
 console.log(arrayWord)
 
 //dichiarazione e assegnazione della variabile content per usarla fuori della function
@@ -19,7 +19,8 @@ let content = 0
    function reverseWord (word){
     content = word.split("")
     content = content.reverse()
-    content = content.toString()
+    content= content.join("").toLowerCase()
+
     console.log(content)
     return
    }
