@@ -1,11 +1,10 @@
 const submitButton = document.querySelector("#submitButton")
 let numbers = document.querySelector('#num')
-let condition = document.querySelector("#condition")
-let winner = document.querySelector("#winner")
-let pari = document.querySelector("#pari")
-let disapri = document.querySelector("#disapri")
-let systemNumber =  document.querySelector("#systemNumber")
-let add = document.querySelector('#sum')
+let list = document.querySelector(".list")
+
+list.classList.toggle("d-none")
+
+
 
 submitButton.addEventListener('click', function (event){
 
@@ -16,8 +15,9 @@ event.preventDefault()
     if(numbers.value <= 5 && numbers.value >= 0){
         console.log("il numero è corretto")
     }else{
-        numbers.value = false
-        console.log("il numero non è corretto")
+        numbers.value = ""
+        alert("inserisci un valore da 1 a 5")
+        return
     }
 
 
@@ -28,20 +28,20 @@ function randomIntFromInterval (min, max) {
   }
   
 const random = randomIntFromInterval(1, 5);
-systemNumber.innerHTML = `il mio numero è : ${random}`
+
 
 //SOMMA TRA RANDOM E NUMERO DIGITATO DALL'UTENTE
 
 
 const sum = parseInt(numbers.value) + parseInt(random)
-add.innerHTML = `la somma dei nostri numeri è : ${sum}`
 
 
 
 // PARI O DISPARI & VINCITORE 
 
-
-const loading = setTimeout(function(){
+let winner = document.querySelector("#winner")
+let pari = document.querySelector("#pari")
+let disapri = document.querySelector("#disapri")
 
 function evenOdd(event){
     if (event % 2 === 0){
@@ -55,17 +55,80 @@ function evenOdd(event){
         
         }
     }
+let spinnerElement = document.querySelector(".spinnerElement")
 
+spinnerElement.classList.toggle("d-none")
+
+
+const loading = setTimeout(function(){
 const winLose = evenOdd(sum)
-console.log(winLose)
+let result = 0;
+
+
+let condition = document.querySelector("#condition")
 
  if(winLose === condition.value){
-            console.log(winner.innerHTML = "HAI VINTO 😊")
+            result = winner.innerHTML = "HAI VINTO 😊"
         }else{
-            console.log(winner.innerHTML = "HAI PERSO 😭")
+            result = winner.innerHTML = "HAI PERSO 😭"
         }
 
-}, 1000)
+spinnerElement.classList.toggle("d-none")
+//STORICO e AGGIUNTA PARTITA
+let chronology = document.querySelector('.chronology')
+
+function memory() {
+    let text = `Hai scelto il numero ${numbers.value} e ${pari.value || dispari.value}  ,${result}`
+
+    let savedHistory = localStorage.getItem("history");
+
+    //Aggiunta elemento
+
+    savedHistory += `<p>${text}</p>`;
+
+    // Salva e aggiorna la cronologia
+
+    localStorage.setItem("history", savedHistory);
+    chronology.innerHTML = `<p">${savedHistory}</p>`;
+}
+
+const item = memory()
+
+}, 2000)
+})
+
+let spinnerText = document.querySelector(".spinnerText")
+let clearButton = document.querySelector("#clearButton")
+
+//TASTO CANCELLA (PER ELIMINARE LO STORICO) ASINCRONO
+
+clearButton.addEventListener("click", function(clearEvent){
+    clearEvent.preventDefault()
+
+    let eventDelete = localStorage.clear()
+    eventDelete = confirm("Sei sicuro di voler elminare lo storico delle partite?")
+
+//DOPO AVER CHIESTO CONFERMA FACCIAMO COMPARIRE LO SPINNER E TOGLIERE L'ACCORDION GUARDA RIGA 5
+
+
+    list.classList.toggle("d-none")
+    spinnerText.classList.toggle("d-none")
+
+//DOPO DUE SECONDI RESETTIAMO 
+
+const loadingCancel = setTimeout(function(){
+    list.classList.toggle("d-none")
+    spinnerText.classList.toggle("d-none")
+}, 2000)
+
+//DOPO DUE SECONDI ESEGUIAMO IL REFRESH DELLA PAGINA PER MOSTRARE L'ELIMINAZIONE DELLO STORICO
+
+const refresh = setTimeout(function(){
+    window.location.reload()
+}, 2000)
+
+
+
 
 })
 
