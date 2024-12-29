@@ -31,15 +31,9 @@ function randomIntFromInterval (min, max) {
 const random = randomIntFromInterval(1, 5);
 console.log(random)
   
-//FUNZIONE SOMMA
-
-function result (num1, num2) {
-         return num1 + num2;
-}
-
 //SOMMA TRA RANDOM E NUMERO DIGITATO DALL'UTENTE
 
-const sum = result(parseInt(num), random)
+const sum = parseInt(num) + random
 console.log(sum)
 
 // PARI O DISPARI & VINCITORE 

@@ -12,8 +12,8 @@ console.log(arrayWord)
 arrayWord = arrayWord.join("").toLowerCase()
 console.log(arrayWord)
 
-//dichiarazione e assegnazione della variabile content per usarla fuori della function
-let content = 0
+//dichiarazione e inizializzazione della variabile content per usarla fuori della function
+let content = 0;
 
 // funzione per invertire parola
    function reverseWord (word){
@@ -25,7 +25,7 @@ let content = 0
     return
    }
 
-//uso della funzione per la parola inversa
+//uso la funzione per la parola inversa
   const reverse = reverseWord(word)
 
   //if per verificare se la parola invertita e parola inserita sono uguali (palindrome)
