@@ -22,13 +22,13 @@ condition = condition.toLocaleLowerCase()
         console.log(controllerS.innerHTML = "il valore non è valido")
     }
    
-//NUMERO RANDOM
+//NUMERO RANDOM ISERITO +1 PERCHE' MAX E' MINORE E NON UGUALE AL VALORE INDICATO
 
-function randomIntFromInterval (min, max) { 
-    return Math.floor(Math.random() * (max - min + 1) + min);
+function randomInt(min, max) { 
+    return Math.round(Math.random() * (max - min + 1) + min);
   }
   
-const random = randomIntFromInterval(1, 5);
+const random = randomInt(1, 5);
 console.log(random)
   
 //SOMMA TRA RANDOM E NUMERO DIGITATO DALL'UTENTE

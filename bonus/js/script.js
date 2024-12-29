@@ -21,13 +21,13 @@ event.preventDefault()
     }
 
 
-//NUMERO RANDOM
+//NUMERO RANDOM ISERITO +1 PERCHE' MAX E' MINORE E NON UGUALE AL VALORE INDICATO
 
-function randomIntFromInterval (min, max) { 
-    return Math.floor(Math.random() * (max - min + 1) + min);
+function randomInt(min, max) { 
+    return Math.round(Math.random() * (max - min + 1) + min);
   }
   
-const random = randomIntFromInterval(1, 5);
+const random = randomInt(1, 5);
 
 
 //SOMMA TRA RANDOM E NUMERO DIGITATO DALL'UTENTE
@@ -45,12 +45,10 @@ let disapri = document.querySelector("#disapri")
 
 function evenOdd(event){
     if (event % 2 === 0){
-        const even = pari.value
-        console.log(even)  
+        const even = pari.value  
         return  even
     }else{
         const odd = dispari.value
-        console.log(odd)
         return odd
         
         }
@@ -89,7 +87,7 @@ function memory() {
     // Salva e aggiorna la cronologia
 
     localStorage.setItem("history", savedHistory);
-    chronology.innerHTML = `<p">${savedHistory}</p>`;
+    chronology.innerHTML = `<p class="text-danger"">${savedHistory}</p>`;
 }
 
 const item = memory()
@@ -107,6 +105,7 @@ clearButton.addEventListener("click", function(clearEvent){
 
     let eventDelete = localStorage.clear()
     eventDelete = confirm("Sei sicuro di voler elminare lo storico delle partite?")
+    sessionStorage.removeItem("history");
 
 //DOPO AVER CHIESTO CONFERMA FACCIAMO COMPARIRE LO SPINNER E TOGLIERE L'ACCORDION GUARDA RIGA 5
 
@@ -126,10 +125,6 @@ const loadingCancel = setTimeout(function(){
 const refresh = setTimeout(function(){
     window.location.reload()
 }, 2000)
-
-
-
-
 })
 
 
