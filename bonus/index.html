@@ -23,6 +23,10 @@
             <option class="text-center" id="dispari" value="dispari">Dispari</option>
           </select>
         <input id="num" class="text-center form-control mt-5" type="number" placeholder="Digita un numero da 1 a 5" aria-label="number">
+        <div class="border border-secondary mt-5">
+          <p class="text-center" id="numR">Il mio numero è</p>
+        </div>
+
          <div class="d-flex justify-content-center">
           <button id="submitButton" class="btn btn-secondary mt-5 mx-2 " type="submit">Scopri se hai vinto</button>
           <button id="clearButton" class="btn btn-secondary mt-5 mx-2" type="submit">Cancella</button>
@@ -31,7 +35,7 @@
         <div class="accordion" >
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="list d-none text-center accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+              <button id="list" class="d-none text-center accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
                 Storico Giocate
               </button>   
             </h2>

@@ -1,41 +1,57 @@
 const submitButton = document.querySelector("#submitButton")
-let numbers = document.querySelector('#num')
-let list = document.querySelector(".list")
+const list = document.querySelector("#list")
+const numRandom = document.querySelector("#numR")
 
 list.classList.toggle("d-none")
 
-
-
 submitButton.addEventListener('click', function (event){
-
 event.preventDefault()
 
 //CONTROLLO NUMERO
 
+const numbers = document.querySelector('#num')
+
     if(numbers.value <= 5 && numbers.value >= 0){
-        console.log("il numero è corretto")
+        numbers.disabled = true //AL CLICK DI BUTTON DISABILITA L'INSERIMENTO DEL NUMERO
+        const loading = setTimeout(function(){
+         numbers.disabled = false //DOPO LO STESSO TEMPO DI CARICAMENTO DELLO SPINNER RIABILITA L'INSERIMENTO DEL NUMERO PER UNA NUOVA PARTITA
+        }, 2000)
     }else{
-        numbers.value = ""
         alert("inserisci un valore da 1 a 5")
+        return
+    }
+
+
+// CONTROLLO PARI E DISPARI
+
+let condition = document.querySelector("#condition")
+
+    if(condition.value === "pari" || condition.value === "dispari"){
+        condition.disabled = true
+        const loading = setTimeout(function(){
+         condition.disabled = false 
+        }, 2000)
+    }else{
+        alert("Seleziona pari o dispari")
         return
     }
 
 
 //NUMERO RANDOM ISERITO +1 PERCHE' MAX E' MINORE E NON UGUALE AL VALORE INDICATO
 
-function randomInt(min, max) { 
-    return Math.round(Math.random() * (max - min + 1) + min);
-  }
+    function randomInt(min, max) { 
+        return Math.round(Math.random() * (max - min + 1) + min);
+      }
   
 const random = randomInt(1, 5);
 
+//NUMERO PC
+
+const numberPc =numRandom.innerHTML = `<p>${random}</p>`
 
 //SOMMA TRA RANDOM E NUMERO DIGITATO DALL'UTENTE
 
-
 const sum = parseInt(numbers.value) + parseInt(random)
-
-
 
 // PARI O DISPARI & VINCITORE 
 
@@ -43,27 +59,28 @@ let winner = document.querySelector("#winner")
 let pari = document.querySelector("#pari")
 let disapri = document.querySelector("#disapri")
 
-function evenOdd(event){
-    if (event % 2 === 0){
-        const even = pari.value  
-        return  even
-    }else{
-        const odd = dispari.value
-        return odd
-        
-        }
-    }
-let spinnerElement = document.querySelector(".spinnerElement")
+//FUNZIONE PER DEFINIRE PARO O DISPARO
 
+    function evenOdd(event){
+        if (event % 2 === 0){
+            const even = pari.value  
+            return  even
+        }else{
+            const odd = dispari.value
+            return odd
+            }
+        }
+
+
+// SPINNER SOPRA AL WINNER
+let spinnerElement = document.querySelector(".spinnerElement")
 spinnerElement.classList.toggle("d-none")
 
+// USO LA FUNZIONE PARO O DISPARO PER DARE IL RISULTATO DEL VINCITORE
 
 const loading = setTimeout(function(){
 const winLose = evenOdd(sum)
-let result = 0;
-
-
-let condition = document.querySelector("#condition")
+let result = 0; //DICHIARAZIONE ED INIZIALIZZAZIONE DI RESULT PER USARLA FUORI DAL BLOCCO IF
 
  if(winLose === condition.value){
             result = winner.innerHTML = "HAI VINTO 😊"
@@ -72,6 +89,7 @@ let condition = document.querySelector("#condition")
         }
 
 spinnerElement.classList.toggle("d-none")
+
 //STORICO e AGGIUNTA PARTITA
 let chronology = document.querySelector('.chronology')
 
