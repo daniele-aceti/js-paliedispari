@@ -10,9 +10,7 @@ let num = prompt ("scrivi un numero da 1 a 5")
         console.log(controllerN.innerHTML = "il numero non è corretto")
     }
 
-    if(isNaN(num)){
-        num = null
-    }
+
 //RICHIESTA PARI O DISPARI
 
 const controllerS = document.querySelector("#controllerS");
