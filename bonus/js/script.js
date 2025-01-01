@@ -90,22 +90,29 @@ let result = 0; //DICHIARAZIONE ED INIZIALIZZAZIONE DI RESULT PER USARLA FUORI D
 
 spinnerElement.classList.toggle("d-none")
 
-//STORICO e AGGIUNTA PARTITA
-let chronology = document.querySelector('.chronology')
 
 function memory() {
     let text = `Hai scelto il numero ${numbers.value} e ${pari.value || dispari.value}  ,${result}`
 
-    let savedHistory = localStorage.getItem("history");
+//CONTROLLO SE LA CHIAVE HISTORY ESISTE ALTRIMENTI VIENE INIZIALIZZATA CON STRNGA VUOTA
 
-    //Aggiunta elemento
+    if (!localStorage.getItem("history")) {
+        localStorage.setItem("history", "")
+    }
+let savedHistory = localStorage.getItem("history") ;
+    
+//Aggiunta elemento
+    
+savedHistory += `<p>${text}</p>`;
 
-    savedHistory += `<p>${text}</p>`;
+// Salva e aggiorna la cronologia
+    
 
-    // Salva e aggiorna la cronologia
+let chronology = document.querySelector('.chronology')
 
-    localStorage.setItem("history", savedHistory);
-    chronology.innerHTML = `<p class="text-danger"">${savedHistory}</p>`;
+localStorage.setItem("history", savedHistory);
+
+return chronology.innerHTML = `<p>${savedHistory}</p>`;
 }
 
 const item = memory()
@@ -121,9 +128,9 @@ let clearButton = document.querySelector("#clearButton")
 clearButton.addEventListener("click", function(clearEvent){
     clearEvent.preventDefault()
 
-    let eventDelete = localStorage.clear()
+    let eventDelete = localStorage.clear();
     eventDelete = confirm("Sei sicuro di voler elminare lo storico delle partite?")
-    sessionStorage.removeItem("history");
+    
 
 //DOPO AVER CHIESTO CONFERMA FACCIAMO COMPARIRE LO SPINNER E TOGLIERE L'ACCORDION GUARDA RIGA 5
 
