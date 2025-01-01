@@ -71,7 +71,6 @@ let disapri = document.querySelector("#disapri")
             }
         }
 
-
 // SPINNER SOPRA AL WINNER
 let spinnerElement = document.querySelector(".spinnerElement")
 spinnerElement.classList.toggle("d-none")
@@ -94,7 +93,7 @@ spinnerElement.classList.toggle("d-none")
 function memory() {
     let text = `Hai scelto il numero ${numbers.value} e ${pari.value || dispari.value}  ,${result}`
 
-//CONTROLLO SE LA CHIAVE HISTORY ESISTE ALTRIMENTI VIENE INIZIALIZZATA CON STRNGA VUOTA
+//CONTROLLO SE LA CHIAVE HISTORY ESISTE ALTRIMENTI VIENE INIZIALIZZATA CON STRINGA VUOTA
 
     if (!localStorage.getItem("history")) {
         localStorage.setItem("history", "")
