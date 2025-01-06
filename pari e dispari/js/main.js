@@ -25,10 +25,6 @@ if(condition === "pari" || condition === "dispari"){
     }
 
 
-//CONTROLLO SE L'UTENTE HA INSERITO SIA NUM CHE CONDITION CORRETTI 
-
-if(num !== null && condition !== null ){
-
 //NUMERO RANDOM ISERITO +1 PERCHE' MAX E' MINORE E NON UGUALE AL VALORE INDICATO
 
     function randomInt(min, max) { 
@@ -68,7 +64,7 @@ console.log(winLose)
             console.log(winner.innerHTML = "HAI PERSO")
         }
 
-    }
+    
 
 
   
