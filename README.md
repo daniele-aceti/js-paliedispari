@@ -1,5 +1,7 @@
 # 🎲 Pari o Dispari & 🔁 Parola Palindroma
 
+📅 Ultimo aggiornamento 01/01/2025
+
 **JavaScript** • **HTML** • **Logica** • **DOM**
 
 > Due mini-esercizi in JavaScript per esercitarsi con funzioni, input utente e manipolazione base del DOM.
